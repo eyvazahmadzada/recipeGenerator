@@ -35,7 +35,7 @@ int main()
     // Wait for the signals
     printf("Waiting for the signals...\n");
     while (1)
-        sleep(1000);
+        sleep(1);
 
     return 0;
 }

@@ -1,9 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <time.h>
 #include <unistd.h>
 
-int main()
+int main(int argc, char **argv)
 {
-    printf("test");
-    sleep(5000);
+    // Check if the PID is entered, show an error message if not
+    if (argc != 2)
+    {
+        fprintf(stderr, "Usage: %s PID\n", argv[0]);
+        exit(0);
+    }
+
+    // List of the possible signals
+    int signals[3] = {SIGINT, SIGQUIT, SIGTERM};
+
+    // Set the random generator to a different starting point
+    srand(time(0));
+
+    for (int i = 0; i < 100; i++)
+    {
+        // Randomly select a signal and send it to the entered PID
+        kill(atoi(argv[1]), signals[rand() % 3]);
+
+        // Sleep for a second
+        sleep(1);
+    }
+
     return 0;
 }
