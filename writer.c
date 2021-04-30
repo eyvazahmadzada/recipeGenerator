@@ -87,7 +87,7 @@ void write_recipes(int msg_id, recipe_category recipe)
                     exit(-1);
                 }
 
-                printf("Recipe of type %ld has been sent\n", msg.type);
+                printf("Recipe of type %d (%s) has been sent\n", recipe.type, recipe.category);
             }
         }
 
