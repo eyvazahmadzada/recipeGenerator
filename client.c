@@ -14,7 +14,7 @@ int main(int argc, char **argv)
     }
 
     // List of the possible signals
-    int signals[3] = {SIGINT, SIGQUIT, SIGTERM};
+    int signals[] = {SIGINT, SIGQUIT, SIGTERM};
 
     // Set the random generator to a different starting point
     srand(time(0));
@@ -22,9 +22,9 @@ int main(int argc, char **argv)
     for (int i = 0; i < 100; i++)
     {
         // Randomly select a signal and send it to the entered PID
-        int ran_signal = signals[rand() % 3];
-        printf("(%d) Sending signal %d to the server...\n", (i + 1), ran_signal);
-        kill(atoi(argv[1]), ran_signal);
+        int rand_signal = signals[rand() % 3];
+        printf("(%d) Sending signal %d to the server...\n", (i + 1), rand_signal);
+        kill(atoi(argv[1]), rand_signal);
 
         // Sleep for a second
         sleep(1);

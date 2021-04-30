@@ -6,15 +6,15 @@
 // A macro to find the size of a category array
 #define N_ARR(t) sizeof(t) / sizeof(recipe_category)
 
-// A function to handle received signals
-void sig_handler(int);
-
 // A structure to store recipe categories
 typedef struct
 {
     int signal;
     char *category;
 } recipe_category;
+
+// A function to handle received signals
+void sig_handler(int);
 
 // Existing recipe categories
 recipe_category arr[] = {{SIGINT, "Student"}, {SIGQUIT, "Azeri"}, {SIGTERM, "French"}};
