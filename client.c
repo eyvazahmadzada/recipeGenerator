@@ -22,7 +22,9 @@ int main(int argc, char **argv)
     for (int i = 0; i < 100; i++)
     {
         // Randomly select a signal and send it to the entered PID
-        kill(atoi(argv[1]), signals[rand() % 3]);
+        int ran_signal = signals[rand() % 3];
+        printf("(%d) Sending signal %d to the server...\n", (i + 1), ran_signal);
+        kill(atoi(argv[1]), ran_signal);
 
         // Sleep for a second
         sleep(1);
