@@ -1,8 +1,8 @@
 CC=gcc  #compiler
 
 all:
-	$(CC) server.c -o server
-	$(CC) client.c -o client
+	$(CC) reader.c -o reader
+	$(CC) writer.c -o writer
 
 clean:
-	rm server client
+	rm reader writer
