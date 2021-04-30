@@ -28,12 +28,6 @@
 *.so.*
 *.dylib
 
-# Ignore binary files
-*
-!/**/
-!*.*
-!Makefile
-
 # Executables
 *.exe
 *.out
@@ -56,3 +50,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Build folder
+build/*
