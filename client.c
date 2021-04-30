@@ -9,7 +9,7 @@ int main(int argc, char **argv)
     // Check if the PID is entered, show an error message if not
     if (argc != 2)
     {
-        fprintf(stderr, "Usage: %s PID\n", argv[0]);
+        fprintf(stderr, "Usage: %s [PID]\n", argv[0]);
         exit(0);
     }
 
