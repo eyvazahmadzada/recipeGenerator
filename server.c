@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 // A macro to find the size of a category array
-#define N_ARR(t) sizeof(t) / sizeof(RecipeCategory)
+#define N_ARR(t) sizeof(t) / sizeof(recipe_category)
 
 // A function to handle received signals
 void sig_handler(int);
@@ -14,10 +14,10 @@ typedef struct
 {
     int signal;
     char *category;
-} RecipeCategory;
+} recipe_category;
 
 // Existing recipe categories
-RecipeCategory arr[] = {{SIGINT, "Student"}, {SIGQUIT, "Azeri"}, {SIGTERM, "French"}};
+recipe_category arr[] = {{SIGINT, "Student"}, {SIGQUIT, "Azeri"}, {SIGTERM, "French"}};
 
 int main()
 {
