@@ -1,6 +1,8 @@
 #ifndef SHARED_H
 #define SHARED_H
 
+#include <signal.h>
+
 // Max number of bytes to be read or written
 #define MAX 10000
 
@@ -18,6 +20,7 @@ typedef struct
 typedef struct
 {
     int type;
+    int signal;
     char *category;
 } recipe_category;
 
