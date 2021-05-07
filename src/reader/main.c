@@ -1,6 +1,9 @@
 #include "../shared.h"
 #include "reader.h"
 
+// A global variable to store message id
+int MSG_ID;
+
 // Existing recipe categories
 recipe_category arr[] = {{1, SIGINT, "Student"}, {2, SIGQUIT, "Azeri"}, {3, SIGTERM, "French"}};
 
@@ -10,7 +13,7 @@ void sig_handler(int);
 int main()
 {
     // Generate unique key
-    key_t key = ftok("recipes", 15);
+    key_t key = ftok("recipes", 10);
 
     // Create a message queue and return id
     MSG_ID = msgget(key, 0666 | IPC_CREAT);
@@ -42,7 +45,7 @@ void sig_handler(int signal)
         // If the received signal is found, read recipes and stop the iteration
         if (arr[i].signal == signal)
         {
-            read_recipes(arr[i].type);
+            read_recipes(MSG_ID, arr[i].type);
             break;
         }
     }

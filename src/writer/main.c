@@ -14,7 +14,7 @@ int main(int argc, char **argv)
     }
 
     // Generate unique key
-    key_t key = ftok("recipes", 15);
+    key_t key = ftok("recipes", 10);
 
     // Create a message queue and return id
     int msg_id = msgget(key, 0666 | IPC_CREAT);

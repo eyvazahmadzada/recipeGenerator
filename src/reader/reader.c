@@ -1,7 +1,7 @@
 #include "../shared.h"
 #include "reader.h"
 
-void read_recipes(int category)
+void read_recipes(int msg_id, int category)
 {
 
     // Declare a message buffer
@@ -12,7 +12,7 @@ void read_recipes(int category)
     printf("Recipes received of type %d:\n\n", category);
 
     // Iterate through the messages and print them
-    while ((length = msgrcv(MSG_ID, &msg, MAX, category, 0)) > 0)
+    while ((length = msgrcv(msg_id, &msg, MAX, category, 0)) > 0)
         printf("%s\n\n\n", msg.text);
 
     // Send the message, show an error if msgsnd fails
